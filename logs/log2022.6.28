@@ -4,7 +4,7 @@ create table Tips#说明
   Tid INT(11) PRIMARY KEY AUTO_INCREMENT,#唯一标识
   TadvanceExpression VARCHAR(120) NULL,#进阶表达式，既某一逻辑的某一选项下的逻辑表达式。
   TbasisExpression VARCHAR(120) NULL,#基础表达式，既某一逻辑的默认选项下的逻辑表达式。
-  Texplain VARCHAR(120) NOT NULL#说明，用于解释此逻辑/属性的功能
+  Texplain VARCHAR(120) NOT NULL#说明，用于解释此逻辑/属性的功能 如果表达式均为空，则说明此项不需要使用表达式，那么只需要与全局变量相同，只展示含义(也就是Texplain)即可
 );
 create table Logics#逻辑
 (
