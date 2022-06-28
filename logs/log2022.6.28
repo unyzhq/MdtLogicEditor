@@ -1,0 +1,32 @@
+记录一下刚完成的几张表(Mysql)
+create table Tips#说明
+(
+  Tid INT(11) PRIMARY KEY AUTO_INCREMENT,#唯一标识
+  TadvanceExpression VARCHAR(120) NULL,#进阶表达式，既某一逻辑的某一选项下的逻辑表达式。
+  TbasisExpression VARCHAR(120) NULL,#基础表达式，既某一逻辑的默认选项下的逻辑表达式。
+  Texplain VARCHAR(120) NOT NULL#说明，用于解释此逻辑/属性的功能
+);
+create table Logics#逻辑
+(
+  Lid INT(11) PRIMARY KEY AUTO_INCREMENT,#唯一标识
+  Lvalue VARCHAR(20) NOT NULL,#逻辑名
+  Ltid INT(11) NOT NULL,#外键，与Tips(Tid)一对一关联
+  FOREIGN KEY(Ltid) REFERENCES Tips(Tid)
+);
+create table Options#选项
+(
+  Oid INT(11) PRIMARY KEY AUTO_INCREMENT,#唯一标识
+  Ovalue VARCHAR(20) NOT NULL,#选项名
+  Olid INT(11) NOT NULL,#外键，与Logics(Lid)多对一关联
+  Otid INT(11) NOT NULL,#外键，与Tips(Tid)一对一关联
+  FOREIGN KEY(Olid) REFERENCES Logics(Lid),
+  FOREIGN KEY(Otid) REFERENCES Tips(Tid)
+);
+create table GlobalVars#全局变量
+(
+  Gid INT(11) PRIMARY KEY AUTO_INCREMENT,#唯一标识
+  Gvalue VARCHAR(20) NOT NULL,#全局变量名
+  Glid INT(11) NULL,#外键，与Logics(Lid)多对一关联 此项非空时表示此全局变量与某一逻辑关联 一般来说物、液、气这三类与sensor关联
+  Gexplain VARCHAR(120) NOT NULL,#说明，用于解释此全局变量的含义
+  FOREIGN KEY(Glid) REFERENCES Logics(Lid)
+);
