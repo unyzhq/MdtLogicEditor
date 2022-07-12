@@ -16,7 +16,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring-mvc.xml</param-value>
 		</init-param>
-		<!-- 应用加载时创建 -->
+		<!-- 应用加载时创建  -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<filter>

@@ -9,6 +9,5 @@ public class main {
 	@RequestMapping("/search")
 	public void search(@RequestParam("string")String str) {
 		System.out.println(str);
-		
 	}
 }
