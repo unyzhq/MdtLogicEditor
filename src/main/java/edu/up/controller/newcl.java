@@ -8,5 +8,6 @@ public class newcl {
 	@RequestMapping("/help")
 	public void help() {
 		System.out.println("help!");
+		
 	}
 }

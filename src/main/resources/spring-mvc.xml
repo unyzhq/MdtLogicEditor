@@ -11,7 +11,7 @@
 	   http://www.springframework.org/schema/context/spring-context.xsd ">
 	   <!-- ÅäÖÃSpring MVCÒªÉ¨ÃèµÄ°ü -->
 	   <context:component-scan base-package="edu.up.controller"></context:component-scan>
-	   <!-- ÅäÖÃÊÓÍ¼½âÎöÆ÷  -->
+	   <!-- ÅäÖÃÊÓÍ¼½âÎöÆ÷ -->
 	   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	   		<property name="prefix" value="/WEB-INF/jsp/"/><!-- Ä¬ÈÏÌø×ªÂ·¾¶ -->
 	   		<property name="suffix" value=".jsp"/><!-- Ä¬ÈÏÌø×ªºó×º -->
