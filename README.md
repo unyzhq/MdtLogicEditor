@@ -1,4 +1,4 @@
-# mdtLogicEditor
+# MdtLogicEditor
 This is a project to help players edit Mindustry(a game) logic instructions.
 
 一个用于帮助玩家编辑Mindustry逻辑的项目
