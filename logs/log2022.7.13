@@ -5,16 +5,50 @@ eclipse git 提交测试
 先是反复横跳的登录界面，
 没有权限的提交，
 害我浪费好多时间，
-最后还是靠访问令牌解决的(https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+最后还是靠访问令牌解决的
+见(https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
 然后就是，
-提交了代码但显示rejected – non-fast-forward
+提交了代码但显示rejected – non-fast-forward，
+github仓库中也没有出现我提交的代码，
 云里雾里，
-不知道是怎么回事，
+不知道是怎么回事。
 貌似好像是一个log文件的问题，
-下载仓库之后，
-我又手动去github把它改了，
-导致了这个问题。
+我把仓库下载到本地之后，
+又手动去github把这个log文件改了一下，
+以至于本地log与github的log文件不一致。
 
 最近好像把log当日记写了，
 感觉用github写日记也不错。
+
+Ohhhhhhhhhhhhhhh!
+再查找n多文档，
+百度n多次之后，
+我终于解决了这个问题！！！
+步骤非常简单，
+首先pull一下，
+会出现一个红色的棱形方块(标记出现冲突的文件)，
+右键文件 Team->reset,
+红色棱形消失，
+再先把这个文件Commit(提交到本地仓库)，
+就可以正常提交代码了。
+[不过我在做这些之前尝试了很多其他操作，
+ 不知道那些操作是否也起到了作用，
+ 出于严谨的考虑，
+ 在此详细讲述一下我的具体操作步骤：
+ 1.反复提交，出现问题之后尝试使用别的博主说的方法，合并之后再提交[失败]
+ 2.偶然发现问题描述，表示问题出在一个log文件上
+ 3.把存放在本地的冲突log文件中的内容复制了一遍，然后手动在github更新了它
+ 4.删除了本地的冲突log文件
+ 5.再次合并 右键项目->Team->Show in Repositories View->Branches->Local->右键main->与Remote Tracking 中的origin/main合并
+ 6.右键问题文件 Team->reset [发现红标的解决方法: reset]
+ 7.提交 [失败]
+ 8.累了，自以为pull其实和上述合并操作没有区别(还是不知道有没有区别)
+ 9.偷懒，尝试使用pull代替合并
+ 10.提交 [失败 在此求助百度 发现 https://www.1024sou.com/article/826000.html#:~:text=Eclipse%20%E4%BD%BF%E7%94%A8git%20pull%20%E4%BB%A3%E7%A0%81%E6%97%B6%E5%8F%91%E7%94%9F%E5%86%B2%E7%AA%81%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%201.commit%20and,plush%20%E5%86%B2%E7%AA%81%E6%96%87%E4%BB%B6%20%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E6%83%85%E5%86%B5%EF%BC%8C%E7%82%B9%E5%87%BBOK%202%2C%20%E9%87%8D%E6%96%B0pull%E4%B8%80%E6%AC%A1%EF%BC%8C%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E6%83%85%E5%86%B5%EF%BC%8C%E5%86%B2%E7%AA%81%E6%96%87%E4%BB%B6%E6%A0%87%E7%BA%A2%203.%E5%8F%8C%E5%87%BB%E6%A0%87%E7%BA%A2%E6%96%87%E4%BB%B6%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%EF%BC%8C%E6%A0%87%E8%AF%86%E5%87%BA%E5%86%B2%E7%AA%81%E9%83%A8%E5%88%86%204.%E6%8A%8A%E7%BA%BF%E4%B8%8A%E4%BB%A3%E7%A0%81%E5%90%88%E5%B9%B6%E5%88%B0%E6%9C%AC%E5%9C%B0%EF%BC%8C%E5%A6%82%E4%B8%8B%E5%9B%BE]
+ 11.再次pull
+ 12.右键问题文件 Team->reset [我现在不确定当时的操作是reset还是add to index 不过我更倾向于是前者。至于为什么不确定嘛，是因为已经麻了，不关心到底用哪个了，能解决问题就行，不行就换一个，大不了穷举一遍。]
+ 13.Commit(提交到本地)
+ 14.右键项目->Team->Push to origin
+ 15.成功！
+]
