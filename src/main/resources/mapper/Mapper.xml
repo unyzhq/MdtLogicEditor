@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+	"http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mapper">
+<resultMap id = "LogicsMap" type = "Logics">
+	<id property = "Lid" column = "Lid"/>
+	<result property = "Lvalue" column = "Lvalue"/>
+	<association property = "Tip" column = "Ltid" javaType = "Tips">
+		<id property = "Tid" column = "Tid"/>
+		<!-- property 对应实际类中的属性名(这里是Tips类) column 对应SQL语句中返回值的属性名(如果不改就是默认的名字) -->
+		<result property = "TadvanceExpression" column = "TadvanceExpression"/>
+		<result property = "TbasisExpression" column = "TbasisExpression"/>
+		<result property = "Texplain" column = "Texplain"/>
+	</association>
+</resultMap>
+<resultMap id = "OptionsMap" type = "Options">
+	<id property = "Oid" column = "Oid"/>
+	<result property = "Ovalue" column = "Ovalue"/>
+	<result property = "Olid" column = "Olid"/>
+	<association property = "Tip" column = "Otid" javaType = "Tips">
+		<id property = "Tid" column = "Tid"/>
+		<!-- property 对应实际类中的属性名(这里是Tips类) column 对应SQL语句中返回值的属性名(如果不改就是默认的名字) -->
+		<result property = "TadvanceExpression" column = "TadvanceExpression"/>
+		<result property = "TbasisExpression" column = "TbasisExpression"/>
+		<result property = "Texplain" column = "Texplain"/>
+	</association>
+</resultMap>
+<resultMap id = "GlobalVarsMap" type = "GlobalVars">
+	<id property = "Gid" column = "Gid"/>
+	<result property = "Gvalue" column = "Gvalue" />
+	<result property = "Glid" column = "Glid" />
+	<result property = "Gexplain" column = "Gexplain" />
+</resultMap>
+<resultMap id = "TipsMap" type = "Tips">
+	<id property = "Tid" column = "Tid"/>
+	<result property = "TadvanceExpression" column = "TadvanceExpression"/>
+	<result property = "TbasisExpression" column = "TbasisExpression"/>
+	<result property = "Texplain" column="Texplain"/>
+</resultMap>
+<select id = "findLogics" resultType = "Logics" resultMap = "LogicsMap">
+	select l.Lid,l.Lvalue,t.*
+	from Logics l,Tips t
+	where l.Ltid = t.Tid
+</select>
+<select id = "findOptions" resultType = "Options" resultMap = "OptionsMap">
+	select o.Oid,o.Ovalue,o.Olid,t.*
+	from Options o,Tips t
+	where o.Otid = t.Tid
+</select>
+<select id = "findGlobalVars" resultType = "GlobalVars" resultMap = "GlobalVarsMap">
+	select *
+	from GlobalVars
+</select>
+<select id = "findTips" resultType = "Tips" resultMap = "TipsMap">
+	select *
+	from Tips
+</select>
+</mapper>

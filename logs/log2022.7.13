@@ -1,1 +1,20 @@
 eclipse git 提交测试
+
+从昨晚到现在，
+新的折磨开始了。
+先是反复横跳的登录界面，
+没有权限的提交，
+害我浪费好多时间，
+最后还是靠访问令牌解决的(https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+
+然后就是，
+提交了代码但显示rejected – non-fast-forward
+云里雾里，
+不知道是怎么回事，
+貌似好像是一个log文件的问题，
+下载仓库之后，
+我又手动去github把它改了，
+导致了这个问题。
+
+最近好像把log当日记写了，
+感觉用github写日记也不错。

@@ -1,0 +1,145 @@
+body{
+	padding:0px;
+	margin:0px;
+}
+@font-face {/*在服务器中提供一个子体下载url以供用户下载使用
+	font-family:
+	src: url();*/
+}
+#head{
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 48px;
+	background: #203744;
+	/*background: #a0d8ef;*/
+}
+#head ul{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+	width: 100%;
+	display:flex;
+	justify-content: left;
+	flex-direction: row;
+}
+#logo{
+	flex: 0 0 auto;
+	heigth: 48px;
+	width: 25px;
+	line-height: 48px;
+	margin-left: calc(6vw);
+}
+#logo img{
+	vertical-align: middle;
+	height: 25px;
+	width: 25px;
+}
+#title{
+	flex: 0 0 auto;
+	height: 100%;
+	width: 244px;
+	padding-left: 7px;
+}
+#title span{
+	justify-content: center;
+	line-height: 48px;
+	font-family: "Peenu","思源黑体 CN Medium","Microsoft YaHei";
+	font-size: 130%;
+	font-style: normal;
+	font-weight: 50px;
+	color: white;
+}
+#box{
+	width: calc(100vw);/*视窗宽度100% 高度是vh*/
+	height: calc(100vh);
+	padding-left: calc(6vw);
+	padding-right: calc(6vw);
+	background: white;
+}
+#containBox{
+	display: inline-block;
+	width: calc(88vw);
+	heigth: 100%;
+	background:white;
+}
+#containBox textarea{/*此textarea仅用于显示光标，没有其他作用*/
+	background-color:rgba(255,255,255,255);
+	position: absolute;
+	z-index: 0;
+	line-height: 19px;
+	width: 1px;
+	height: 19px;
+	resize: none;/*禁止拖动设置大小(去掉右下角的//)*/
+	outline: none;/*去掉选中时的默认样式(黄色边框)*/
+	border:none;
+	left: calc(19.2vw);/*通过计算得到正确的位置(eq div与左边界的距离)*/
+	top: 48px;
+	margin-left:35px;/*由于eq 中还有一个计数lineCount 它的宽度是固定的 因此使用一个左外边距与其匹配*/
+}
+#left{
+	width: 15%;
+	height: 100%;
+	float: left;
+	background: white;
+}
+#eq{
+	display:flex;/*使用弹性伸缩盒 以实现一个固定宽度，一个填充剩余宽度*/
+	width: 60%;
+	heigth: 100%;
+	float: left;
+	background: red;
+}
+#right{
+	width: 25%;
+	height:100%;
+	float: left;
+	background: lightblue;
+}
+#left ul{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+#left ul li{
+	cursor: pointer;
+	width: 100%;
+	height: 19px;
+	margin-top: 5px;
+	font-family: "思源黑体 CN Bold","Microsoft YaHei";
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 19px;
+	font-feature-settings: "liga" 0, "calt" 0;
+	color: #71686c;
+	background: rgba(31,49,52,0.1);
+}
+.mouseover{
+	/*用于批量注册悬浮事件*/
+}
+#lineCount{
+	flex: 0 0 auto;/*伸长比 收缩比 基准(为auto时等于width)*/
+	width: 35px;
+	height: 100%;
+	float: left;
+}
+.lineCount{
+	width: 100%;
+	height: 19px;
+	line-height: 19px;
+	text-align: center;
+	background: darkcyan;
+}
+#line{
+	flex: 1 1 auto;
+	height: 100%;
+	background:lawngreen;
+	float:left;
+}
+.line{
+	width: 100%;
+	height: 19px;
+	line-height: 19px;
+	text-align: left;
+}

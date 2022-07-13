@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE configuration
+	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://www.mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 环境配置 -->
+	<!-- 加载类路径下的属性文件 -->
+	<properties resource = "db.properties" />
+	<!-- settings
+         打印SQL语句的执行信息,mybatis自带，无需添加依赖
+         setting name="logImpl" value="STDOUT_LOGGING"
+    /settings-->
+    <settings>
+    	<!-- 开启SQL执行信息-->
+    	<!--  setting name="logImpl" value = "STDOUT_LOGGING"/-->
+    	<!-- 开启二级缓存 -->
+    	<setting name = "cacheEnabled" value = "true" />
+    </settings>
+    <typeAliases>
+    	<!-- 这样在xml中引用pojo包中的类时省略pojo -->
+    	<package name="pojo"/>
+    </typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<!-- 数据库连接相关配置,db.properties文件中的内容 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${mysql.driver}"/>
+				<property name="url" value="${mysql.url}"/>
+				<property name="username" value="${mysql.username}"/>
+				<property name="password" value="${mysql.password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- mapping文件路径配置 -->
+	<mappers>
+		<mapper resource="mapper/Mapper.xml"/>
+	</mappers>
+</configuration>
